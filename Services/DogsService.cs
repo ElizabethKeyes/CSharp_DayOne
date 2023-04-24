@@ -7,6 +7,13 @@ public class DogsService
   {
     _repo = repo;
   }
+
+  internal Dog Create(Dog dogData)
+  {
+    Dog dog = _repo.Create(dogData);
+    return dog;
+  }
+
   internal List<Dog> Get()
   {
     List<Dog> dogs = _repo.Get();

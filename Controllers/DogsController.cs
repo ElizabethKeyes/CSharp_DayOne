@@ -11,6 +11,21 @@ public class DogsController : ControllerBase
     _dogsService = dogsService;
   }
 
+
+  [HttpPost]
+  public ActionResult<Dog> Create([FromBody] Dog dogData)
+  {
+    try
+    {
+      Dog dog = _dogsService.Create(dogData);
+      return Ok(dog);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+
   [HttpGet]
   public ActionResult<List<Dog>> Get()
   {
@@ -32,11 +47,13 @@ public class DogsController : ControllerBase
     try
     {
       Dog dog = _dogsService.GetOne(dogId);
-      return dog;
+      return Ok(dog);
     }
     catch (Exception e)
     {
       return BadRequest(e.Message);
     }
   }
+
+
 }

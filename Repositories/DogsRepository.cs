@@ -9,6 +9,14 @@ public class DogsRepository
     _db = db;
   }
 
+  internal Dog Create(Dog dogData)
+  {
+    int dogId = _db.Dogs[_db.Dogs.Count - 1].Id + 1;
+    Dog dog = new Dog(dogData.Name, dogData.Age, dogData.Breed, dogId);
+    _db.Dogs.Add(dog);
+    return dog;
+  }
+
   internal List<Dog> Get()
   {
     return _db.Dogs;
