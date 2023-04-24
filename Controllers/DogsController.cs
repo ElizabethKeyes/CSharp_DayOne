@@ -26,6 +26,20 @@ public class DogsController : ControllerBase
     }
   }
 
+  [HttpDelete("{dogId}")]
+  public ActionResult<string> Delete(int dogId)
+  {
+    try
+    {
+      string message = _dogsService.Delete(dogId);
+      return Ok(message);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+
   [HttpGet]
   public ActionResult<List<Dog>> Get()
   {

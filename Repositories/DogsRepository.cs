@@ -17,6 +17,12 @@ public class DogsRepository
     return dog;
   }
 
+  internal void Delete(int dogId)
+  {
+    Dog dog = this.GetOne(dogId);
+    _db.Dogs.Remove(dog);
+  }
+
   internal List<Dog> Get()
   {
     return _db.Dogs;

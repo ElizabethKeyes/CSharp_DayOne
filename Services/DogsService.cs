@@ -14,6 +14,13 @@ public class DogsService
     return dog;
   }
 
+  internal string Delete(int dogId)
+  {
+    Dog dog = this.GetOne(dogId);
+    _repo.Delete(dogId);
+    return $"{dog.Name} has been adopted";
+  }
+
   internal List<Dog> Get()
   {
     List<Dog> dogs = _repo.Get();
