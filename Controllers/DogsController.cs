@@ -24,4 +24,19 @@ public class DogsController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+
+
+  [HttpGet("{dogId}")]
+  public ActionResult<Dog> GetOne(int dogId)
+  {
+    try
+    {
+      Dog dog = _dogsService.GetOne(dogId);
+      return dog;
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 }

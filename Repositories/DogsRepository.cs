@@ -13,4 +13,10 @@ public class DogsRepository
   {
     return _db.Dogs;
   }
+
+  internal Dog GetOne(int dogId)
+  {
+    Dog dog = _db.Dogs.Find(d => d.Id == dogId);
+    return dog;
+  }
 }
