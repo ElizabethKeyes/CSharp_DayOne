@@ -33,6 +33,10 @@ public class Startup
 
     services.AddScoped<AccountsRepository>();
     services.AddScoped<AccountService>();
+
+    services.AddSingleton<FakeDB>();
+    services.AddScoped<DogsRepository>();
+    services.AddScoped<DogsService>();
   }
 
   private void ConfigureCors(IServiceCollection services)
