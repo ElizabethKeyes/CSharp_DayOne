@@ -12,7 +12,7 @@ public class DogsRepository
   internal Dog Create(Dog dogData)
   {
     int dogId = _db.Dogs[_db.Dogs.Count - 1].Id + 1;
-    Dog dog = new Dog(dogData.Name, dogData.Age, dogData.Breed, dogId);
+    Dog dog = new Dog(dogData.Name, dogData.Age, dogData.Breed, dogData.isGood, dogId);
     _db.Dogs.Add(dog);
     return dog;
   }

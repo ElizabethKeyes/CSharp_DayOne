@@ -2,12 +2,12 @@ namespace CSharp_DayOne.Models;
 
 public class Dog
 {
-  public Dog(string name, int age, string breed, int id)
+  public Dog(string name, int age, string breed, bool isGood, int id)
   {
     Name = name;
     Age = age;
     Breed = breed;
-    isGood = isGood;
+    this.isGood = isGood;
     Id = id;
   }
 
